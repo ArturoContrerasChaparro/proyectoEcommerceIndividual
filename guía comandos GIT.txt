@@ -1,0 +1,71 @@
+***Clonar repositorio para poder trabajar de manera remota***
+1.- git clone: para clonar repositorios ejemplo (git clone https://github.com/jcgeneratio
+
+***La persona que subirá avances a su rama y de ahí a develop***
+
+0.- ASEGURATE DE ESTAR EN TU RAMA
+1.- git add .
+2.- git commit -m "(descripcion)" 
+3.- git push origin (tu rama)
+4.- git checkout develop
+5.- git pull origin develop
+5.- git merge (tu rama)
+6.- git push origin develop
+7.- git checkout (tu rama)(para volver a tu rama de trabajo)
+
+
+
+***Los que van a hacer rebase***
+
+
+1.- En develop hacer git pull origin develop
+2.- Cada miembro debe hacer el rebase (git checkout (su rama) - git rebase develop)
+3.- Actualizar su rama en GitHub.com con los cambios de develop (git push origin (su rama).
+
+
+https://learngitbranching.js.org/
+
+**Borrar rama local y github**
+1.-git branch -D (nombre de mi rama)
+2. git push origin --delete arturo
+
+
+
+comandos Git
+git --version: para ver la version en la que esta.
+git --help: para pedir ayuda.
+git config --global user.name "nombre": para poner el usuario.
+git config --global user.email "email": para poner el correo.
+git init: crea una carpeta oculta como repositorio y lo inicia. (almacena los cambios)
+git clone: para clonar repositorios ejemplo (git clone https://github.com/jcgeneration/EjercicioSuperMercado
+git status: Para ver el estado del archivo.
+git add: Para agregar un archivo al área de preparación.
+git add .: Para agregar todo un directorio. (notese el espacio en el punto)
+git commit: Es una captura o para guardar tu trabajo. (primero necesitas el add)
+git commit --amend: corregir el mensaje o error que hayas hecho en el commit.
+git commit -m "descripción" =>forma easy
+git revert: regresa al commit anterior
+git log: es para comunicar todo (para ver el proceso de todo lo que se hizo.)
+git log --pretty=oneline: muestra lo mismo que git log pero resumido en 4 lineas
+git log --stat: otra forma de mostar el git log
+git log --pretty=format:"%h - %an, %ar : %s" : otra forma de mostar git log
+git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset': para ver el git log con colores más bonito.
+git rm --cached file : para quitar un archivo del área de preparación. 
+vi (archivo): para editar el texto del archivo.
+cat -n ch13.txt: para ver el contenido del archivo.
+git remote add
+Git pull: Es utilizado para actualizar la versión local de un repositorio desde otro remoto.
+git push: Se usa para cargar contenido del repositorio local a un repositorio remoto. 
+git config --global init.defaultBranch main
+git branch: para ver en cual rama estamos
+git branch nuevaRama:
+git branch checkout "nombre de rama": para cambiar de rama o crear rama
+git branch -d "nombre de rama": para borrar rama
+git merge nombreRama: para fusionarte con otra rama por ejemplo (git merge develop)
+CONCEPTOS...
+
+Working Directory = Área de modificación
+Staging Area = Area de preparación
+Git Repository = Confirmado
+
+https://www.makeareadme.com/
