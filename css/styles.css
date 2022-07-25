@@ -1,0 +1,50 @@
+
+/* Como utilizar un fondo para tu página */
+
+/* body{
+background:url("../img/fondo.jpg");   
+background-repeat: no-repeat; 
+background-position: center center;
+height: 1800px;
+background-attachment: fixed;
+background-size: cover;
+} */
+
+*{
+    
+    margin: 0%;
+    padding: 0%;
+}
+html {
+    min-height: 100%;
+    position: relative;
+  }
+  body {
+    margin: 0;
+    margin-bottom: 40px;
+  }
+  .footer{
+
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+}
+.fa-cart-shopping{
+    color: blue;
+    font-size: 40px;
+}
+.fa-facebook{
+    color: blue;
+    font-size: 40px;
+}
+.fa-twitter{
+    color: aqua;
+    font-size: 40px;
+}
+.nav-link:hover{
+    color: blue !important;
+}
+.navbar-brand:hover{
+    color: blue !important;
+}
