@@ -12,10 +12,39 @@
   <!--Nabvar.js-->
   <div id="navBar"></div>
   <!--Fin nabVar--->
-
+  <main>
+    <div class="container align-items-center justify-content-center inicio gx-5 mt-5">
+        <div class="row align-items-center justify-content-center">
+            <div class="d-none d-md-block col-md-6">
+                <img src="./img/inicio.png"  width="100%">
+            </div>
+            <div class="col-12 col-md-6 mt-4 d-block mx-auto">
+                <h1 class="text-center">Iniciar sesión</h1>
+                <hr>
+                <form class="inicio" id="inicio">
+                  <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Correo Electrónico</label>
+                    <input type="email" class="form-control" id="email" placeholder="sergioperez@dominio.com">
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">contraseña</label> 
+                    <input type="password" class="form-control" id="password" placeholder="********">
+                    <span class="form-text">
+                        Debe contener 8 caracteres
+                      </span>
+                  </div>
+                  <button type="button" class="btn btn-primary w-100" id="button">Iniciar sesión</button>
+                    <p class="text-center">¿No tienes una cuenta?<a href="./registro.html">registrate</a></p>
+                </form>
+            </div>
+        </div>
+    </div>
+  </main>
 <!--Footer-->
 <div id="footer"></div>
 <!--fin Footer-->
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="./js/inicio.js"></script>
  <script src="./js/navBar_Footer.js"></script>
  <script src="https://kit.fontawesome.com/a2fde8c980.js" crossorigin="anonymous"></script>
  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>

@@ -1,3 +1,4 @@
+"use strict"
 let navBar = document.getElementById("navBar");
 let footer = document.getElementById("footer");
 navBar.innerHTML = `<nav class="navbar navbar-expand-md">

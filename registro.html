@@ -25,12 +25,12 @@ input[type=number]::-webkit-outer-spin-button{
     <div class="container align-items-center justify-content-center registro">
         <div class="row align-items-center justify-content-center">
             <div class="d-none d-md-block col-md-6">
-                <img src="./img/Registro.jpg"  width="80%">
+                <img src="./img/registro.jpg"  width="90%">
             </div>
             <div class="col-12 col-md-6 mt-4 bg-light">
                 <h1 class="text-center">Registrarse</h1>
                 <hr>
-                <form class="registro">
+                <form class="registro" id="form">
                     <div class="mb-3">
                         <label for="text" class="form-label">Nombre</label>
                         <input type="text" class="form-control" id="name" placeholder="Arturo">
@@ -54,10 +54,10 @@ input[type=number]::-webkit-outer-spin-button{
                         <label for="exampleInputPassword1" class="form-label">contraseña</label> 
                         <input type="password" class="form-control" id="password" placeholder="********">
                         <span class="form-text">
-                            Debe contener 8 caracteres
+                            Mínimo 8 caracteres, al menos una letra mayúscula, 1 letra minúscula y 1 número o caracter especial
                           </span>
                       </div>
-                    <button type="submit" class="btn btn-primary w-100">Registrarse</button>
+                    <button type="button" class="btn btn-primary w-100" id="boton">Registrarse</button>
                   </form>
             </div>
         </div>
@@ -69,6 +69,8 @@ input[type=number]::-webkit-outer-spin-button{
 <!--Footer-->
 <div id="footer"></div>
 <!--fin Footer-->
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="./js/registro.js"></script>
  <script src="./js/navBar_Footer.js"></script>
  <script src="https://kit.fontawesome.com/a2fde8c980.js" crossorigin="anonymous"></script>
  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
