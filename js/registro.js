@@ -16,46 +16,72 @@ const validateName = /^([A-Z a-zá-úÁ-Ú]{3,})+$/,
 
 
 button.addEventListener("click", e =>{
-    e.preventDefault()
-    if (validateName.test(Name.value)) {
-        console.log("yes");
-    }   else {console.log("no");
+    //Validaciones de las expresiones regulares 
+    if (validateName.test(Name.value) && Name.value.trim()) {
+            Name.classList.remove("border-danger");
+            Name.classList.add("border-success");
+    }   else {
+            Name.classList.add("border-danger");
              }//if
 
-    if (validateLastName.test(lastName.value)) {
-        console.log("Yes");
-    }   else {console.log("no");
+    if (validateLastName.test(lastName.value) && lastName.value.trim()) {
+            lastName.classList.remove("border-danger");
+            lastName.classList.add("border-success");
+    }   else {
+            lastName.classList.add("border-danger");
              }//if
 
     if (validatePhone.test(phone.value)) {
-        console.log("yes");
-    }   else {console.log("no");
+            phone.classList.remove("border-danger");
+            phone.classList.add("border-success");
+    }   else {
+            phone.classList.add("border-danger");
              }//if
+
     if (validateEmail.test(email.value)) {
-        console.log("yes");
-    }   else{console.log("no");
-            }//if
-    if (validatePassword.test(password.value)) {
-        console.log("yes");
-    }   else{console.log("no");
+            email.classList.remove("border-danger");
+            email.classList.add("border-success");
+    }   else{
+            email.classList.add("border-danger");
+
             }//if
 
-            if (validateName.test(Name.value) && validateLastName.test(lastName.value) && validatePhone.test(phone.value) && validateEmail.test(email.value) && validatePassword.test(password.value)) {
+    if (validatePassword.test(password.value)) {
+            password.classList.remove("border-danger");
+            password.classList.add("border-success");
+    }   else{
+            password.classList.add("border-danger");
+            }//if
+
+            if (validateName.test(Name.value) && validateLastName.test(lastName.value) && validatePhone.test(phone.value) 
+            && validateEmail.test(email.value) && validatePassword.test(password.value) && Name.value.trim()
+            && lastName.value.trim()) {
+                //Si todos los datos cumplen con las validaciones hara todo lo siguiente
                 addPerson();
+    //Alerta de registro exitoso            
     Swal.fire(
         '¡Registro Exitoso!',
         '',
         'success'
       )
+    //resetear formulario
     form.reset();
-            } else {
-                swal.fire( "" ,  "¡Ingresa bien tus datos!" ,  "error" )
-            }
-    
-    
-    
-})
 
+    //Quitar bordes verdes 
+    Name.classList.remove("border-success"), lastName.classList.remove("border-success"), 
+    phone.classList.remove("border-success"), email.classList.remove("border-success"), 
+    password.classList.remove("border-success");
+            
+    // Si no se cumple con las validaciones mandara lo siguiente 
+    }    else{
+                swal.fire( "" ,  "¡Ingresa bien tus datos!" ,  "error" )
+            }//if
+    
+    
+    
+})//addEventListener
+
+//Json del formulario
 function addPerson () {
     let newPerson= {
     pName : Name.value,
@@ -67,5 +93,5 @@ function addPerson () {
 
 console.log(newPerson);
 
-}
+}//functionAddPerson
 
