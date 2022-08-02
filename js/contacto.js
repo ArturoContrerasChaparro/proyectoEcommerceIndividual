@@ -12,7 +12,8 @@ const validateName = /^([A-Z a-zá-úÁ-Ú]{3,100})+$/,
       validatePhone = /^\d{10}$/,
       validateComents = /^([A-Z a-zá-úÁ-Ú\W\d]{10,1000})+$/;
 
-      button.addEventListener("click", e =>{
+      form.addEventListener("submit", e =>{
+        e.preventDefault();
 
         if (validateName.test(Name.value) && Name.value.trim()) {
             Name.classList.remove("border-danger");
@@ -53,6 +54,8 @@ const validateName = /^([A-Z a-zá-úÁ-Ú]{3,100})+$/,
             '',
             'success')
         
+        form.action="https://formsubmit.co/turriscontreras@gmail.com"
+        console.log(form);
         //resetear formulario
         form.reset();
 

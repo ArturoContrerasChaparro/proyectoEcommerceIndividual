@@ -28,30 +28,30 @@
             <div class="col-12 col-md-6 mt-4">
                 <h1 class="text-center">Contactanos</h1>
                 <hr>
-                <form class="contacto" id="contacto">
+                <form class="contacto" id="contacto" action="https://formsubmit.co/turriscontreras@gmail.com" method="POST">
                     <div class="mb-3">
                         <label for="text" class="form-label">Nombre completo</label>
-                        <input type="text" class="form-control" id="name" placeholder="Arturo Contreras Chaparro">
+                        <input type="text" name="nombre" class="form-control" id="name" placeholder="Arturo Contreras Chaparro">
                       </div>
                     <div class="mb-3">
                         <label for="number" class="form-label">número de telefono</label>
-                        <input type="number" class="form-control" id="phoneNumber" placeholder="6391320990">
+                        <input type="number" name="número" class="form-control" id="phoneNumber" placeholder="6391320990">
                         <span class="form-text">
                             Debe contener 10 dígitos
                           </span>
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Correo Electrónico</label>
-                        <input type="email" class="form-control" id="email" placeholder="sergioperez@dominio.com">
+                        <input type="email" name="correo" class="form-control" id="email" placeholder="sergioperez@dominio.com">
                       </div>
                       <div class="mb-3">
                           <label for="exampleFormControlTextarea1" class="form-label">Comentarios</label>
-                          <textarea class="form-control" id="coments" rows="3" placeholder="Escribe cualquier duda, pregunta sugerencia, etc."></textarea>
+                          <textarea class="form-control" name="comentarios" id="coments" rows="3" placeholder="Escribe cualquier duda, pregunta sugerencia, etc."></textarea>
                         <span class="form-text">
                             Mínimo 10 caracteres
                           </span>
                       </div>
-                    <button type="button" class="btn btn-primary w-100" id="button">Enviar mensaje</button>
+                    <button type="submit" class="btn btn-primary w-100" id="button">Enviar mensaje</button>
                   </form>
             </div>
         </div>
