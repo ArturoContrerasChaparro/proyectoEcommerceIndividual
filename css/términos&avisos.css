@@ -1,0 +1,63 @@
+body{
+    background:url("../img/background.jpg");   
+    background-repeat: no-repeat; 
+    background-position: center center;
+    height: 100%;
+    background-attachment: fixed;
+    background-size: cover;
+    }
+
+    .contenedor {
+        width: 70%;
+        height: 600px;
+        margin: 50px auto;
+        padding: 20px;
+        background: #fff;
+        overflow: auto;
+        font-family: 'Open Sans';
+        border-radius: 4px;
+        opacity: 70%;
+    }
+
+    .contenedor h1 {
+        font-size: 38px;
+        font-weight: 600;
+        color: #000;
+    }
+
+    .contenedor h3 {
+        font-size: 20px;
+        font-weight: 600;
+        color: #000;
+    }
+
+    .contenedor h4 {
+        font-size: 20px;
+        font-weight: 600;
+        color: #000;
+    }
+
+    .contenedor hr {
+        background: blue;
+        width: 20%;
+        height: 5px;
+        border: none;
+        margin: 20px 0;
+        border-radius: 50px;
+    }
+
+    p {
+        margin-bottom: 20px;
+        line-height: 28px;
+        font-size: 16px;
+        color: #414141;
+    }
+
+    .contenedor::-webkit-scrollbar {
+        width: 7px;
+    }
+    
+    .contenedor::-webkit-scrollbar-thumb {
+        background: blue;
+        border-radius: 10%;
+    }

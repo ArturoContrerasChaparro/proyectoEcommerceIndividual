@@ -4,8 +4,11 @@ const Name= document.getElementById('name'),
       lastName= document.getElementById('lastName'),
       phone= document.getElementById('phoneNumber'),
       email= document.getElementById('email'),
-      password= document.getElementById('password');
+      password= document.getElementById('password'),
+      Checkbox= document.getElementById("flexCheckDefault") ;
 const button = document.getElementById("boton");
+
+const message = document.getElementById("message");
 
 const validateName = /^([A-Z a-zá-úÁ-Ú]{3,})+$/,
       validateLastName = /^([A-Z a-zá-úÁ-Ú]{3,})+$/,
@@ -52,10 +55,17 @@ button.addEventListener("click", e =>{
     }   else{
             password.classList.add("border-danger");
             }//if
+    if (Checkbox.checked)  {
+            message.classList.add("d-none")
+    }   else{    
+            message.classList.remove("d-none")
+            
+    }
+
 
             if (validateName.test(Name.value) && validateLastName.test(lastName.value) && validatePhone.test(phone.value) 
             && validateEmail.test(email.value) && validatePassword.test(password.value) && Name.value.trim()
-            && lastName.value.trim()) {
+            && lastName.value.trim() && Checkbox.checked) {
                 //Si todos los datos cumplen con las validaciones hara todo lo siguiente
                 addPerson();
     //Alerta de registro exitoso            
