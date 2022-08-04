@@ -9,7 +9,10 @@ height: 1800px;
 background-attachment: fixed;
 background-size: cover;
 } */
-
+.navBar a{
+    color: black !important;
+    font-weight:  bolder !important;
+}
 *{
     
     margin: 0%;
@@ -47,4 +50,16 @@ html {
 }
 .navbar-brand:hover{
     color: blue !important;
+}
+
+.footer ins{
+    color: black;
+    font-weight:  500;
+
+    
+}
+
+.footer ins:hover{
+    color: blue;
+    
 }
