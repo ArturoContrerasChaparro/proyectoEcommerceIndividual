@@ -45,9 +45,8 @@ body{
 }
 
 .container__cover{
-    max-width: 1200px;
+    max-width: 70%;
     margin: auto;
-    padding: 20px;
     display: flex;
     justify-content: space-between;
     position: relative;
@@ -239,4 +238,8 @@ border-radius: 0 10px 10px 0;
         right: 0px;
         border-radius: 0 10px 10px 0;
         }
+}
+
+.graduado{
+    margin-left: 8%;
 }
