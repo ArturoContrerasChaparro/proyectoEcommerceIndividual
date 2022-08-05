@@ -1,4 +1,5 @@
 "use strict"
+const url = 'http://localhost:8080/api/users/';
 const form = document.getElementById('form');
 const Name= document.getElementById('name'),
       lastName= document.getElementById('lastName'),
@@ -66,11 +67,16 @@ button.addEventListener("click", e =>{
             if (validateName.test(Name.value) && validateLastName.test(lastName.value) && validatePhone.test(phone.value) 
             && validateEmail.test(email.value) && validatePassword.test(password.value) && Name.value.trim()
             && lastName.value.trim() && Checkbox.checked) {
+
                 //Si todos los datos cumplen con las validaciones hara todo lo siguiente
-                addPerson();
-    //Alerta de registro exitoso            
+                
+                //Registra al usuario directamente a la base de datos.
+                postUser();
+    
+    
+                //Alerta de registro exitoso            
     Swal.fire(
-        '¡Registro Exitoso!',
+        `¡Bienvenido a nuestra página ${Name.value} ${lastName.value}!`,
         '',
         'success'
       )
@@ -91,17 +97,36 @@ button.addEventListener("click", e =>{
     
 })//addEventListener
 
-//Json del formulario
-function addPerson () {
-    let newPerson= {
-    pName : Name.value,
-    pLastName : lastName.value,
-    pPhone : phone.value,
-    pEmail : email.value,
-    pPassword : password.value
+//Post del User a la base de datos en MySql
+function postUser () {
+    
+  
+    let newPerson = {
+    nombre : Name.value,
+    apellido : lastName.value,
+    numero : phone.value,
+    correo : email.value,
+    contraseña : password.value
 };
 
-console.log(newPerson);
+fetch(url, {
+        method: 'POST',
+        body: JSON.stringify(newPerson),
+        headers:{
+           'content-Type' : 'application/json'
+        },
+        body: JSON.stringify(newPerson),
+
+})
+.then(response => response.json())
+.then(newPerson =>{
+        newPerson, console.log("El usuario se envió en la base de datos");
+})
+.catch((error) => {console.log('Error al enviar datos', error);
+});
+
+
 
 }//functionAddPerson
+
 
