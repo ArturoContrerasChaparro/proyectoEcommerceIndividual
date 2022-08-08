@@ -70,18 +70,9 @@ button.addEventListener("click", e =>{
 
                 //Si todos los datos cumplen con las validaciones hara todo lo siguiente
                 
-                //Registra al usuario directamente a la base de datos.
-                postUser();
+                //Aqui entra la función donde comprueba si el usuario ya existe, si no existe entonces entra a la función de post que esta en la linea 97, ya que postUser() esta dentro de esta misma función comprobarUsuario();
+                comprobarUsuario();
     
-    
-                //Alerta de registro exitoso            
-    Swal.fire(
-        `¡Bienvenido a nuestra página ${Name.value} ${lastName.value}!`,
-        '',
-        'success'
-      )
-    //resetear formulario
-    form.reset();
 
     //Quitar bordes verdes 
     Name.classList.remove("border-success"), lastName.classList.remove("border-success"), 
@@ -97,7 +88,7 @@ button.addEventListener("click", e =>{
     
 })//addEventListener
 
-//Post del User a la base de datos en MySql
+//Post [para subuir al usuario a la base de datos en MySql
 function postUser () {
     
   
@@ -128,5 +119,56 @@ fetch(url, {
 
 
 }//functionAddPerson
+let existe = false;
+//Función para comprobar si el usuario ya existe en la base de datos
+    function comprobarUsuario() {
+        fetch(url, {
+            method: 'get'
+        }).then(function(response) {
+            response.json().then(function (json) {
+               let usuarios = json;    
+                if (usuarios == undefined) {
+                    Swal.fire(
+                                    '¡Error de servidor!',
+                                    '',
+                                    'error'
+                                  );
+                }else{
+                    console.log("se encontró la base de datos con los usuarios")
+                    console.log("comprobando si el correo "+ email.value + " o si el número de teléfono -" + phone.value + "- Ya existe");
+                    for (let index = 0; index < json.length; index++) {
+                        if (json[index].correo==email.value || json[index].numero == phone.value) {
+                            console.log("usuario encontrado en la posición "+ index+ " con el id "+ json[index].id)
+                               Swal.fire(
+                                  '¡El correo o teléfono ya existe!',
+                                  '',
+                                  'error'
+                                );
+                                
+                                return;         
+                        } 
+                    }
+                   if (!existe){
 
+                    //Si no se encuentra el correo o número de teléfono entonces se agregara a la base de datos el nuevo usuario, aparecerá una alerta y se reseteara el formulario.
+                     postUser();
 
+                     Swal.fire(
+                        `¡Bienvenido a nuestra página ${Name.value} ${lastName.value}!`,
+                        '',
+                        'success'
+                      )
+
+                     form.reset();
+                      
+                   }
+                        
+                      
+                }
+    });//then
+    }).catch(function(err) {
+    console.log("el error es"+err);
+    });
+    }// comprobarUsuario
+
+    
