@@ -63,30 +63,44 @@ let existe = false;
                     console.log("se encontró la base de datos con los usuarios")
                     console.log("comprobando si el correo -"+ email.value + "- y la contraseñá -" + "*********" + "- son correctas");
                     for (let index = 0; index < json.length; index++) {
-                        if (json[index].correo==email.value && json[index].contraseña == password.value) {
+                        if (json[index].correo===email.value) {
                             console.log("usuario encontrado en la posición "+ index+ " con el id "+ json[index].id)
-                            Swal.fire(
-                                `¡Bienvenido de vuelta ${json[index].nombre} ${json[index].apellido}!`,
-                                '',
-                                'success'
-                              )
-
-                              form.reset();
-                                
+                            if (json[index].contraseña === password.value) {
+                                Swal.fire(
+                                    `¡Bienvenido de vuelta ${json[index].nombre} ${json[index].apellido}!`,
+                                    '',
+                                    'success'
+                                  )
+                                  localStorage.removeItem("Nombre", `${json[index].nombre}`)
+                                  localStorage.removeItem("Apellido" ,`${json[index].apellido}`);
+                                  localStorage.removeItem("Correo" ,  `${json[index].correo}`);
+                                  localStorage.setItem("Nombre" ,`${json[index].nombre}`);
+                                  localStorage.setItem("Apellido" ,`${json[index].apellido}`);
+                                  localStorage.setItem("Correo" ,  `${json[index].correo}`);
+                                  form.reset();
+                                  setTimeout(function(){
+                                    window.open("http://127.0.0.1:5501/productos.html","_self")
+                                  },3000);
+                            } else {
+                                Swal.fire(
+                                    '¡Se encontro el correo pero la contraseña es incorrecta',
+                                    '',
+                                    'error'
+                                  );
+                                  
+                                 
+                                  
+                            } 
                                 return;         
-                        } 
+                        } else {(!existe) 
+                            Swal.fire(
+                                '¡El correo no esta registrado en nuestra página!',
+                                '',
+                                'error'
+                              );
+                        }
                     }
-                   if (!existe){
-
-                    //Si no se encuentra el correo o número de teléfono entonces se agregara a la base de datos el nuevo usuario, aparecerá una alerta y se reseteara el formulario.
-                    Swal.fire(
-                        '¡El usuario no existe! o lo contraseña es incorrecta',
-                        '',
-                        'error'
-                      );
-                                          
-                      
-                   }
+                   
                         
                       
                 }

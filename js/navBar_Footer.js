@@ -1,6 +1,8 @@
 "use strict"
-let navBar = document.getElementById("navBar");
-let footer = document.getElementById("footer");
+
+const navBar = document.getElementById("navBar");
+const footer = document.getElementById("footer");
+
 navBar.innerHTML = `<nav class="navbar navbar-expand-md">
     <div class="container-fluid gx-5 fixed-top bg-light">
       <a class="navbar-brand" href="./index.html">ShopGamers</a>
@@ -25,10 +27,11 @@ navBar.innerHTML = `<nav class="navbar navbar-expand-md">
         <div class="d-flex justify-content-end">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" href="./iniciosesion.html">Iniciar Sesión</a>
+          <a href="./iniciosesion.html"><button type="button" class="btn mt-1 btn-primary w-30 iniciarSesion" id="iniciar">Iniciar Sesión</button></a>
+          <button type="button" class="btn mt-1 btn-danger w-30 cerrarSesion d-none" id="cerrar">Cerrar Sesión</button>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="./registro.html">Registrarse</a>
+          <a href="./registro.html"><button type="button" class="btn mt-1 btn-success w-30 registro" id="registro">Registrarse</button></a>
           </li>
           <li class="nav-item">
             <a href="./carrito.html"><i class="fa-solid fa-cart-shopping fa-x5"></i></a>
@@ -64,3 +67,24 @@ footer.innerHTML = `
  </div>
  </nav>
 </footer> `
+let iniciar = document.getElementById("iniciar");
+let cerrar = document.getElementById("cerrar");
+let user = localStorage.getItem("Nombre");
+if (user = user) {
+  iniciar.classList.add("d-none");
+  cerrar.classList.remove("d-none");
+  
+  
+} else { console.log("No hay sesión iniciada")
+iniciar.classList.remove("d-none");
+  cerrar.classList.add("d-none");}
+
+cerrar.addEventListener("click", e=>{
+  Swal.fire(
+    '¡Cerraste tu sesión exitosamente!',
+    '',
+    'success'
+  );
+  localStorage.clear();
+  setTimeout(function(){location.reload()},3000)
+});
