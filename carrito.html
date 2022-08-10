@@ -13,10 +13,69 @@
   <div id="navBar" class="navBar"></div>
   <!--Fin nabVar--->
 
+  <br>
+
+  
+</head>
+<body class="bg-light">
+  
+<div class="container">
+<div class="py-5 text-center">
+  <h2>Carrito de compras</h2>
+</div>
+
+<div class="row">
+  <div class="col-md-4 order-md-2 mb-4">
+    <h4 class="d-flex justify-content-between align-items-center mb-3">
+      <span class="text-muted">Resumen</span>
+      <span class="badge badge-danger badge-pill"id="contadorProductos">0</span>
+    </h4>
+    <ul class="list-group mb-3">
+      <li class="list-group-item d-flex justify-content-between lh-condensed">
+        <div>
+          <h5 class="my-0"id="totalProductos">Total en Productos</h5>
+        </div>
+        <span class="text-muted" id="productosTotal">0</span>
+      </li>
+          <li class="list-group-item d-flex justify-content-between lh-condensed">
+            <div>
+              <h6 class="my-0"id="totalPrecio">Total</h6>
+            </div>
+            <span class="text-muted"id="precioTotal">0</span>
+      </li>
+      
+    </ul>
+
+    
+  </div>
+  
+      <hr class="mb-4">
+      
+      <!-- Insertar tabla aquí -->
+      <table class="table table-bordered text-center" id="tablaListaCompras">
+        <thead>
+          <tr>
+            <th scope="col">Nombre</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Imagen</th>
+            <th scope="col">Eliminar</th>
+          </tr>
+        </thead>
+        <tbody id="table">
+          
+        </tbody>
+      </table>
+      <button id="btnPagar"class="btn btn-primary btn-lg btn-block" type="submit">Pagar</button>
+    </form>
+  </div>
+</div>
+
+
 <!--Footer-->
 <div id="footer"></div>
 <!--fin Footer-->
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="./js/cartshop.js"></script>
  <script src="./js/navBar_Footer.js"></script>
  <script src="https://kit.fontawesome.com/a2fde8c980.js" crossorigin="anonymous"></script>
  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
