@@ -1,11 +1,11 @@
 const totalPagar = document.getElementById("precioTotal");
+const buttonPagar = document.getElementById("btnPagar");
 let products =JSON.parse(localStorage.getItem("elementosCarrito"));
 
 //función que Agrrega los productos desde la pagína de productos a carrito mediante el localstorage
 function agregarProductos(div_Productos) {
   
         products.forEach(element => {
-            console.log(element);
             div_Productos.innerHTML +=`
             <tr class="shoppingCartItem" id="${element.identificador}">
             <th scope="row">${element.nombre}</th>
@@ -35,14 +35,11 @@ agregarProductos(table);
 function BorrarProductos() {
 setTimeout(function(){
     let deleteRow = document.getElementsByClassName("shoppingCartItem");
-    console.log(deleteRow);
     for (let index = 0; index < deleteRow.length; index++) {
         const rowList = deleteRow[index];
-        console.log(rowList);
         rowList.addEventListener("click", e =>{
            let attribute = rowList.getAttribute("id")
             products.splice(attribute,1)
-            console.log(products);
         let transactionArrayJson = JSON.stringify(products);
         console.log(transactionArrayJson);
         localStorage.setItem("elementosCarrito", transactionArrayJson);
@@ -75,3 +72,17 @@ totalPagar.innerHTML= "$"+total+".MXN";
 },300);//timeOut
 }//función borrarProductos
 precioTotal();
+
+buttonPagar.addEventListener("click", e =>{
+    
+    Swal.fire(
+        `Felicitaciones por su compra! se hizo el cobro de ${totalPagar.innerHTML}!`,
+        '',
+        'success'
+      )
+      setTimeout(function(){
+        localStorage.removeItem("elementosCarrito")
+        location.reload();
+      },5000)
+      
+})
