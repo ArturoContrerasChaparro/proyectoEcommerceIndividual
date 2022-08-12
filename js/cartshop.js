@@ -1,9 +1,9 @@
 const totalPagar = document.getElementById("precioTotal");
-
+let products =JSON.parse(localStorage.getItem("elementosCarrito"));
 
 //función que Agrrega los productos desde la pagína de productos a carrito mediante el localstorage
 function agregarProductos(div_Productos) {
-  let products =JSON.parse(localStorage.getItem("elementosCarrito"));
+  
         products.forEach(element => {
             console.log(element);
             div_Productos.innerHTML +=`
@@ -34,26 +34,27 @@ agregarProductos(table);
 //Función para borrar producto por producto
 function BorrarProductos() {
 setTimeout(function(){
-let button = document.querySelectorAll(".remove");
-button.forEach(element =>{
-    element.addEventListener("click",(e) =>{
-        let transactionObjArr = JSON.parse(localStorage.getItem("elementosCarrito"))
-        console.log(transactionObjArr);
-        let deleteRow = e.target.parentNode.parentNode;
-        console.log(deleteRow);
-        let transactionid = deleteRow.getAttribute("id");
-        console.log(transactionid);
-        deleteRow.remove();
-        transactionObjArr.splice(transactionid,1)
-        console.log(transactionObjArr);
-        let transactionArrayJson = JSON.stringify(transactionObjArr);
+    let deleteRow = document.getElementsByClassName("shoppingCartItem");
+    console.log(deleteRow);
+    for (let index = 0; index < deleteRow.length; index++) {
+        const rowList = deleteRow[index];
+        console.log(rowList);
+        rowList.addEventListener("click", e =>{
+           let attribute = rowList.getAttribute("id")
+            products.splice(attribute,1)
+            console.log(products);
+        let transactionArrayJson = JSON.stringify(products);
         console.log(transactionArrayJson);
         localStorage.setItem("elementosCarrito", transactionArrayJson);
+        location.reload();
+        })
         
+    }
+
+     
         
     
-})//addEventListener
-})//forEach
+
 
 },300)//timeOut
 };//funciónBorrarProductos
