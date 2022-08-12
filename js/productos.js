@@ -1,6 +1,7 @@
 let productos;
 let arrayProducts = []
 let articulo = []
+let transactionid = -1;
 const URL_MAIN = 'http://localhost:8080/api/products/';
 //Esta función nos trae los productos desde la base de datos y los manda a la página productos como cartas de productos.
 function addItems(div_Productos) {
@@ -64,13 +65,13 @@ const buttons = document.querySelectorAll(".carrito")
   let cardPrice = card.querySelector(".card-price").textContent;
   let cardImg = card.querySelector(".img").src;
   let cardId = card.querySelector(".card-id").id;
-  let transactionId = getIdLocalStorage();
 
+  transactionid++;
   
 
 
   let elemento= { 
-    "identificador" : transactionId,
+    "identificador" : transactionid,
     "nombre" : cardTitle,
     "price"  : cardPrice,
     "img"    : cardImg,
@@ -92,11 +93,6 @@ const buttons = document.querySelectorAll(".carrito")
     
 },2000);
 
-function getIdLocalStorage(){
-  let lastId = localStorage.getItem("lastId") || "-1";
-  let newId =  JSON.parse(lastId) + 1;
-  localStorage.setItem("lastId", JSON.stringify(newId));
-}
 
 
 
